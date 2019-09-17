@@ -20,6 +20,15 @@ sh """
  
  """ 
 	}
+	stage('APP-IC - Quality Analysis'){
+		withMaven(maven:'maven-3.5.4'){
+			if(isUnix()){
+				sh "mvn sonar:sonar"
+			} else {
+				bat "mvn sonar:sonar"
+			}
+		}
+	}	
 	stage ('App-IC - Post build actions') {
 /*
 Please note this is a direct conversion of post-build actions. 
