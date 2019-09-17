@@ -21,7 +21,7 @@ sh """
  """ 
 	}
 	stage('APP-IC - Quality Analysis'){
-		withMaven(maven:'maven-3.5.4'){
+		withMaven(maven:'maven'){
 			if(isUnix()){
 				sh "mvn sonar:sonar"
 			} else {
